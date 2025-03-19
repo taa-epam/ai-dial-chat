@@ -111,6 +111,7 @@ import {
 import { OrganizationPromptsTree } from '@/src/ui/webElements/entityTree/sidebar/organizationPromptsTree';
 import { ErrorPopup } from '@/src/ui/webElements/errorPopup';
 import { Filter } from '@/src/ui/webElements/filter';
+import { Footer } from '@/src/ui/webElements/footer';
 import { Header } from '@/src/ui/webElements/header';
 import { ImportExportLoader } from '@/src/ui/webElements/importExportLoader';
 import { InputAttachments } from '@/src/ui/webElements/inputAttachments';
@@ -172,6 +173,7 @@ const dialTest = test.extend<{
   banner: Banner;
   promptBar: PromptBar;
   chat: Chat;
+  footer: Footer;
   chatMessages: ChatMessages;
   editMessageInputAttachments: InputAttachments;
   sendMessage: SendMessage;
@@ -485,6 +487,10 @@ const dialTest = test.extend<{
   chat: async ({ appContainer }, use) => {
     const chat = appContainer.getChat();
     await use(chat);
+  },
+  footer: async ({ appContainer }, use) => {
+    const footer = appContainer.getFooter();
+    await use(footer);
   },
   chatMessages: async ({ chat }, use) => {
     const chatMessages = chat.getChatMessages();
@@ -1009,8 +1015,8 @@ const dialTest = test.extend<{
     const chatMessagesAssertion = new ChatMessagesAssertion(chatMessages);
     await use(chatMessagesAssertion);
   },
-  footerAssertion: async ({ chat }, use) => {
-    const footerAssertion = new FooterAssertion(chat.getFooter());
+  footerAssertion: async ({ footer }, use) => {
+    const footerAssertion = new FooterAssertion(footer);
     await use(footerAssertion);
   },
   sendMessagePromptListAssertion: async ({ sendMessage }, use) => {
