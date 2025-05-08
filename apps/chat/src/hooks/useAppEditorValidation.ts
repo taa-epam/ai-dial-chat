@@ -2,11 +2,9 @@ import { useEffect } from 'react';
 
 import { useRouter } from 'next/router';
 
-import { getApplicationType } from '../utils/app/application';
-import { isMyApplication } from '../utils/app/id';
-import { isEntityIdPublic } from '../utils/app/publications';
-import { canWriteSharedWithMe } from '../utils/app/share';
-import { decode } from '@/src/utils/app/application-type-schema';
+import { isMyApplication } from '@/src/utils/app/id';
+import { isEntityIdPublic } from '@/src/utils/app/publications';
+import { canWriteSharedWithMe } from '@/src/utils/app/share';
 
 import { ApplicationActions } from '../store/application/application.reducers';
 import { ApplicationSelectors } from '../store/application/application.selectors';
@@ -52,8 +50,7 @@ export const useAppEditorValidation = (isIdRequired: boolean) => {
       applicationId && isEntityIdPublic({ id: applicationId });
     if (
       !applicationId ||
-      (!isAdmin && isAppPublic) || // check if the application is public
-      decode(slug.toString()) !== getApplicationType(application) // if slug is not equal to application type
+      (!isAdmin && isAppPublic) // check if the application is public
     ) {
       router.push(Routes.NotFound);
       return;
