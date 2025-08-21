@@ -16,3 +16,5 @@ jobs:
       node-version: 22
       platforms: "linux/amd64,linux/arm64"
       maximize-build-space: true
+      DOCKERHUB_LOGIN: ${{ secrets.DOCKERHUB_LOGIN }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
