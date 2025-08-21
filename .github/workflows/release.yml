@@ -12,8 +12,19 @@ jobs:
   release:
     uses: taa-epam/ai-dial-ci/.github/workflows/node_release.yml@f35b17df28f9a32ea75e80c8449e6dc3a7f75aa1
     secrets: inherit
+    strategy:
+      fail-fast: false # Let all builds finish
+      matrix:
+        include:
+          - platform: "linux/amd64"
+            runner: "ubuntu-24.04"
+            arch: "amd64"
+          - platform: "linux/arm64"
+            runner: "ubuntu-24.04-arm"
+            arch: "arm64"
     with:
+      runs-on: '["${{ matrix.runner }}"]'
       node-version: 22
-      platforms: "linux/amd64,linux/arm64"
+      platforms: '["${{ matrix.platform }}"]'
       maximize-build-space: true
       dockerhub-image-name: ltaa/ai-dial-chat
