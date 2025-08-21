@@ -30,4 +30,4 @@ jobs:
       platforms: '["${{ matrix.platform }}"]'
       maximize-build-space: true
       dockerhub-image-name: ltaa/ai-dial-chat
-      ort-bypassed: '["${{ matrix.ort-bypassed }}"]'
+      ort-bypassed: "${{ matrix.ort-bypassed }}"
