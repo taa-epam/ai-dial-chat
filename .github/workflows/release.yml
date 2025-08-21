@@ -11,10 +11,10 @@ concurrency:
 jobs:
   release:
     uses: taa-epam/ai-dial-ci/.github/workflows/node_release.yml@1280967b512e85ffc95fe6903a81eb9178f11966 # 2.4.1
-    secrets: inherit
+    secrets:
+      DOCKERHUB_LOGIN: ${{ secrets.DOCKERHUB_LOGIN }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
     with:
       node-version: 22
       platforms: "linux/amd64,linux/arm64"
       maximize-build-space: true
-      DOCKERHUB_LOGIN: ${{ secrets.DOCKERHUB_LOGIN }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
