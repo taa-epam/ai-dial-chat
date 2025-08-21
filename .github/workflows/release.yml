@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   release:
-    uses: taa-epam/ai-dial-ci/.github/workflows/node_release.yml@8609c040b96c0d9d4ac99b60e2f605d1e215a95f
+    uses: taa-epam/ai-dial-ci/.github/workflows/node_release.yml@f35b17df28f9a32ea75e80c8449e6dc3a7f75aa1
     secrets: inherit
     with:
       node-version: 22
