@@ -22,6 +22,7 @@ jobs:
           - platform: "linux/arm64"
             runner: "ubuntu-24.04-arm"
             arch: "arm64"
+            ort-bypassed: true
     with:
       runs-on: '["${{ matrix.runner }}"]'
       node-version: 22
