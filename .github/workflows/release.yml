@@ -34,7 +34,7 @@ jobs:
       runs-on: '["${{ matrix.runner }}"]'
       node-version: 22
       platforms: "${{ matrix.platform }}"
-      maximize-build-space: true
+      # maximize-build-space: true
       dockerhub-image-name: ltaa/ai-dial-chat
       ort-bypassed: "${{ matrix.ort-bypassed }}"
       trivy-enabled: "${{ matrix.trivy-enabled }}"
