@@ -16,11 +16,17 @@ jobs:
       fail-fast: false # Let all builds finish
       matrix:
         include:
-          - platform: "linux/amd64"
-            runner: "ubuntu-24.04"
-            arch: "amd64"
+          # - platform: "linux/amd64"
+          #   runner: "ubuntu-24.04"
+          #   arch: "amd64"
           - platform: "linux/arm64"
             runner: "ubuntu-24.04-arm"
+            arch: "arm64"
+            ort-bypassed: true
+            trivy-enabled: false
+
+          - platform: "linux/arm64"
+            runner: "ubuntu-24.04"
             arch: "arm64"
             ort-bypassed: true
             trivy-enabled: false
