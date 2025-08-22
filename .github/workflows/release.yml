@@ -27,7 +27,7 @@ jobs:
     with:
       runs-on: '["${{ matrix.runner }}"]'
       node-version: 22
-      platforms: '["${{ matrix.platform }}"]'
+      platforms: "${{ matrix.platform }}"
       maximize-build-space: true
       dockerhub-image-name: ltaa/ai-dial-chat
       ort-bypassed: "${{ matrix.ort-bypassed }}"
