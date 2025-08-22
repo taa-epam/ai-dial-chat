@@ -19,11 +19,11 @@ jobs:
           - platform: "linux/amd64"
             runner: "ubuntu-24.04"
             arch: "amd64"
-            ort-bypassed: false
           - platform: "linux/arm64"
             runner: "ubuntu-24.04-arm"
             arch: "arm64"
             ort-bypassed: true
+            trivy-enabled: false
     with:
       runs-on: '["${{ matrix.runner }}"]'
       node-version: 22
@@ -31,3 +31,4 @@ jobs:
       maximize-build-space: true
       dockerhub-image-name: ltaa/ai-dial-chat
       ort-bypassed: "${{ matrix.ort-bypassed }}"
+      trivy-enabled: "${{ matrix.trivy-enabled }}"
